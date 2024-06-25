@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0.5rem;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar a:hover {
+            background-color: #495057;
+            border-radius: 5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem;
+            display: none;
+        }
+
+        form input[type="text"], form input[type="submit"] {
+            margin: 0.5rem;
+            padding: 0.5rem;
+            width: 80%;
+            max-width: 300px;
+        }
+
+
+        .divGrilla {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .div, .div2 {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .div img, .div2 img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .tablas {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .tablas td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+            }
+
+            .divGrilla {
+                grid-template-columns: 1fr;
+            }
+
+            form input[type="text"], form input[type="submit"] {
+                width: 100%;
+            }
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .form-toggle button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>IA, drawing and Pics</h1>
+</header>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="/Learning-page.html">Home</a></li>
+        <li><a href="#quienes-somos">Quienes somos</a></li>
+        <li>Contacto</li>
+        <li>Inicia Sesion</li>
+        <li><a href="https://es.wikipedia.org/wiki/Elon_Musk">Esponsor</a></li>
+    </ul>
+</nav>
+
+<section>
+    <div class="form-toggle">
+        <button onclick="formularioRegistro()">Registrate</button>
+    </div>
+    <form id="formulario">
+        <input type="text" name="email" id="email" required placeholder="email">
+        <input type="text" name="password" id="password" required placeholder="pass">
+        <input type="" name="Usuario" id="user" placeholder="username">
+        <input type="checkbox" id="IA" name="IA" value="IA">
+        <label for="IA">IA</label><br>
+        <input type="checkbox" id="Fotografia" name="Fotografia" value="Fotografia">
+        <label for="Fotografia">Fotografia</label><br>
+        <input type="checkbox" id="Dibujo" name="Dibujo" value="Dibujo">
+        <label for="Dibujo">Dibujo</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Masculino</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Femenino</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Otro</label>
+        <input type="submit" onclick="dataRegistros" value="Registro">
+        <button id="downloadButton" type="button">Descargar JSON</button>
+    </form>
+</section>
+
+<main>
+    <div class="divGrilla">
+        <div class="div">
+            <img src="Img/IAfungus.jpeg" alt="IA Fungus">
+            <button onclick="toggleTable(this)">Mostrar detalles</button>
+            <table class="tablas">
+                <tr>
+                    <td>Autor</td>
+                    <td>WachoLow Ko</td>
+                </tr>        
+                <tr>
+                    <td>Precio</td>
+                    <td>CLP75000</td>
+                </tr>        
+                <tr>
+                    <td>Herramienta</td>
+                    <td>Leonardo IA</td>
+                </tr>        
+                <tr>
+                    <td>Contacto</td>
+                    <td><a href="https://c.tenor.com/awLuGFe7rJMAAAAC/tenor.gif" target="_blank">Instagram</a></td>
+                </tr>        
+                <tr>
+                    <td>Fecha de Creacion</td>
+                    <td>20 De Mayo</td>
+                </tr>            
+            </table>
+        </div>
+        
+        <div class="div2">
+            <img src="Img/IADibujo1.jpg" alt="IA Dibujo 1">
+            <button onclick="toggleTable(this)">Mostrar detalles</button>
+            <table class="tablas">
+                <tr>
+                    <td>Autor</td>
+                    <td>Mikom-Pare</td>
+                </tr>        
+                <tr>
+                    <td>Precio</td>
+                    <td>CLP315000</td>
+                </tr>        
+                <tr>
+                    <td>Herramienta</td>
+                    <td>Sora IA</td>
+                </tr>        
+                <tr>
+                    <td>Contacto</td>
+                    <td><a href="https://www.facebook.com" target="_blank">Facebook</a></td>
+                </tr>        
+                <tr>
+                    <td>Fecha de Creacion</td>
+                    <td>10 De Julio</td>
+                </tr>            
+            </table>
+        </div>
+        
+        <div class="div">
+            <img src="Img/IAFuturo.jpg" alt="IA Futuro">
+            <button onclick="toggleTable(this)">Mostrar detalles</button>
+            <table class="tablas">
+                <tr>
+                    <td>Autor</td>
+                    <td>Cara D.Mono</td>
+                </tr>        
+                <tr>
+                    <td>Precio</td>
+                    <td>CLP15000</td>
+                </tr>        
+                <tr>
+                    <td>Herramienta</td>
+                    <td>CIVITIA</td>
+                </tr>        
+                <tr>
+                    <td>Contacto</td>
+                    <td><a href="https://i.giphy.com/SvP3FgHsFVm7zwMdH6.webp" target="_blank">Youtube</a></td>
+                </tr>        
+                <tr>
+                    <td>Fecha de Creacion</td>
+                    <td>24 De Abril</td>
+                </tr>            
+            </table>
+        </div>
+        
+        <div class="div">
+            <img src="Img/DeHylda.jpg" alt="De Hilda">
+            <button onclick="toggleTable(this)">Mostrar detalles</button>
+            <table class="tablas">
+                <tr>
+                    <td>Autor</td>
+                    <td>De Hilda</td>
+                </tr>        
+                <tr>
+                    <td>Precio</td>
+                    <td>CLP175000</td>
+                </tr>        
+                <tr>
+                    <td>Herramienta</td>
+                    <td>Lapiz Bic</td>
+                </tr>        
+                <tr>
+                    <td>Contacto</td>
+                    <td><a href="https://c.tenor.com/awLuGFe7rJMAAAAC/tenor.gif" target="_blank">Instagram</a></td>
+                </tr>        
+                <tr>
+                    <td>Fecha de Creacion</td>
+                    <td>20 De Mayo</td>
+                </tr>            
+            </table>
+        </div>
+        
+        <div class="div2">
+            <img src="Img/2B.jpg" alt="2B">
+            <button onclick="toggleTable(this)">Mostrar detalles</button>
+            <table class="tablas">
+                <tr>
+                    <td>Autor</td>
+                    <td>2B</td>
+                </tr>        
+                <tr>
+                    <td>Precio</td>
+                    <td>CLP35415000</td>
+                </tr>        
+                <tr>
+                    <td>Herramienta</td>
+                    <td>Lapiz Bic</td>
+                </tr>        
+                <tr>
+                    <td>Contacto</td>
+                    <td><a href="https://www.facebook.com" target="_blank">Facebook</a></td>
+                </tr>        
+                <tr>
+                    <td>Fecha de Creacion</td>
+                    <td>10 De Julio</td>
+                </tr>            
+            </table>
+        </div>
+        
+        <div class="div">
+            <img src="Img/Byrone1.jpg" alt="Byrone">
+            <button onclick="toggleTable(this)">Mostrar detalles</button>
+            <table class="tablas">
+                <tr>
+                    <td>Autor</td>
+                    <td>Byrone</td>
+                </tr>        
+                <tr>
+                    <td>Precio</td>
+                    <td>CLP15000</td>
+                </tr>        
+                <tr>
+                    <td>Herramienta</td>
+                    <td>Lapiz Bic</td>
+                </tr>        
+                <tr>
+                    <td>Contacto</td>
+                    <td><a href="https://i.giphy.com/SvP3FgHsFVm7zwMdH6.webp" target="_blank">Youtube</a></td>
+                </tr>        
+                <tr>
+                    <td>Fecha de Creacion</td>
+                    <td>24 De Abril</td>
+                </tr>            
+            </table>
+        </div>
+        
+        <div class="div">
+            <img src="Img/Foto1.jpeg" alt="Foto 1">
+            <button onclick="toggleTable(this)">Mostrar detalles</button>
+            <table class="tablas">
+                <tr>
+                    <td>Autor</td>
+                    <td>Fotógrafo 1</td>
+                </tr>        
+                <tr>
+                    <td>Precio</td>
+                    <td>CLP50000</td>
+                </tr>        
+                <tr>
+                    <td>Herramienta</td>
+                    <td>Cámara</td>
+                </tr>        
+                <tr>
+                    <td>Contacto</td>
+                    <td><a href="https://instagram.com" target="_blank">Instagram</a></td>
+                </tr>        
+                <tr>
+                    <td>Fecha de Creacion</td>
+                    <td>5 De Junio</td>
+                </tr>            
+            </table>
+        </div>
+    </div>
+</main>
+
+<footer class="footer" id="quienes-somos">
+    <p>Quienes somos</p>
+    <p>Somos una empresa dedicada a la inteligencia artificial, el dibujo y la fotografía, 
+        ofreciendo servicios de alta calidad y productos innovadores. Nuestro objetivo es fusionar el
+         arte y la tecnología para crear experiencias únicas y personalizadas.</p>
+</footer>
+
+<script>
+    const dataRegistros = [];  //array
+
+    function formularioRegistro() {
+        const form = document.getElementById('formulario');
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'flex';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+
+    document.getElementById("formulario").addEventListener("submit",function(event) { 
+        event.preventDefault(); //funcion
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var user = document.getElementById("user").value;
+        
+        var ia = document.getElementById("IA").checked;
+        var fotografia = document.getElementById("Fotografia").checked;
+        var dibujo = document.getElementById("Dibujo").checked;
+
+        var gender;
+        if (document.getElementById("male").checked) {
+            gender = "male";
+        } else if (document.getElementById("female").checked) {
+            gender = "female";
+        } else if (document.getElementById("other").checked) {
+            gender = "other";
+        }
+
+        const registro = {//objeto
+            email: email,
+            password: password,
+            user: user,
+            ia: ia,
+            fotografia: fotografia,
+            dibujo: dibujo,
+            gender: gender
+        };
+
+        dataRegistros.push(registro);
+        console.log("Email: " + email);
+        console.log("Password: " + password);
+        console.log("Username: " + user);
+        console.log("IA: " + ia);
+        console.log("Fotografia: " + fotografia);
+        console.log("Dibujo: " + dibujo);
+        console.log("Gender: " + gender);
+
+        alert("Registro exitoso");
+        document.getElementById("formulario").reset();
+    });
+
+    function toggleTable(button) {
+        const table = button.nextElementSibling;
+        if (table.style.display === 'none' || table.style.display === '') {
+            table.style.display = 'table';
+            button.textContent = 'Ocultar detalles';
+        } else {
+            table.style.display = 'none';
+            button.textContent = 'Mostrar detalles';
+        }
+    }
+    
+    document.getElementById("downloadButton").addEventListener("click", function() {
+        const jsonData = JSON.stringify(dataRegistros, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "data.json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+
+    
+</script>
+
+</body>
+</html>
